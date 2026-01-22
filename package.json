@@ -1,0 +1,32 @@
+{
+  "name": "3b1b-style-animation-skill",
+  "version": "1.0.0",
+  "description": "Create pedagogically-focused mathematical animations in 3Blue1Brown style using Manim",
+  "author": "subinium",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subinium/3b1b-style-animation-skill"
+  },
+  "keywords": [
+    "claude-code",
+    "skills",
+    "manim",
+    "3b1b",
+    "3blue1brown",
+    "math",
+    "animation",
+    "deep-learning",
+    "neural-network",
+    "linear-algebra",
+    "statistics",
+    "visualization",
+    "education"
+  ],
+  "skills": {
+    "3b1b-style-animation": {
+      "path": "./skills/3b1b-style-animation",
+      "description": "3Blue1Brown style mathematical animations"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+# Manim generated files
+media/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+
+# Audio files (generated)
+audio_*/
+*.mp3
+*.wav
+
+# Temporary files
+*.tmp
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Output videos
+*.mp4
+!examples/**/*.mp4
+
+# Tex files
+*.aux
+*.fls
+*.fdb_latexmk
