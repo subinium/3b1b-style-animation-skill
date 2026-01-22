@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="https://www.3blue1brown.com/content/lessons/2020/lockdown-math/thumbnail.png" alt="3b1b style" width="400"/>
+<img src="assets/3b1b-logo.png" alt="3b1b style" width="200"/>
 
 **Create pedagogically-focused mathematical animations in the 3Blue1Brown style**
 
@@ -95,11 +95,10 @@ class WhyPythagorean(Scene):
 3b1b-style-animation-skill/
 ├── package.json
 ├── README.md
-├── skills/
-│   └── 3b1b-style-animation/
-│       ├── SKILL.md          # Main skill definition
-│       └── rules/            # 38 detailed guideline files
-└── examples/                 # Working demonstrations
+└── skills/
+    └── 3b1b-style-animation/
+        ├── SKILL.md          # Main skill definition
+        └── rules/            # 40+ detailed guideline files
 ```
 
 ## The 3Blue1Brown Visual Style
