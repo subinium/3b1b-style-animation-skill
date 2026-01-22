@@ -10,6 +10,8 @@ priority: high
 
 Proper sync between narration and visuals is critical. Out-of-sync audio destroys the learning experience.
 
+> **Recommended:** Use `StrictSyncScene` base class from `strict-sync.md` for automatic timing enforcement.
+
 ## The Sync Problem
 
 ```
