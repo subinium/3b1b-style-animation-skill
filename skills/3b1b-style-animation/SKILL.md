@@ -1,255 +1,172 @@
 ---
 name: 3b1b-style-animation
-description: Create pedagogically-focused mathematical animations in 3Blue1Brown style using Manim
+description: Create mathematical animations in 3Blue1Brown style using Manim
 metadata:
   author: subinium
-  version: 1.1.0
-  tags: manim, 3b1b, math, education, pedagogy, visualization, animation
+  version: 2.1.0
+  tags: manim, 3b1b, math, education, visualization, animation
 ---
 
-# 3Blue1Brown Style Mathematical Animations
+## When to use
 
-Use this skill when creating mathematical animations, visualizations, or educational videos about math, algorithms, or deep learning concepts.
-
-> "The goal is not to animate math, but to build understanding." — Grant Sanderson
-
----
-
-## Core Philosophy
-
-| Principle | Implementation |
-|-----------|----------------|
-| **Intuition Before Formalism** | Build visual understanding before showing formulas |
-| **Why Before What** | Motivate concepts before defining them |
-| **Concrete Before Abstract** | Start with specific examples, then generalize |
-| **Show, Don't Tell** | Let the visual do the explaining |
+Use this skill when creating mathematical animations, visualizations, or educational videos using Manim (ManimCE).
 
 ---
 
-## Quick Start
+## Quick Reference (Core Patterns)
 
-**Installation:**
-```bash
-pip install manim
+### Colors
+```python
+BG = "#1c1c1c"           # Background (MUST use)
+BLUE = "#3b82f6"         # Primary, nodes
+YELLOW = "#fbbf24"       # Highlights, emphasis
+GREEN = "#22c55e"        # Success, done, positive
+RED = "#ef4444"          # Error, negative
+GRAY = "#9ca3af"         # Inactive, labels
 ```
 
-**Basic Scene:**
+### Scene Template
 ```python
 from manim import *
 
 class MyScene(Scene):
     def construct(self):
         self.camera.background_color = "#1c1c1c"
-        # Your animation code here
+        # Your code here
+        self.wait(2)  # End padding
 ```
 
----
-
-## Rules Index
-
-### Setup & Configuration
-| Rule | Description |
-|------|-------------|
-| `rules/manim-setup.md` | Installation and environment setup |
-| `rules/color-scheme.md` | 3b1b color palette and semantic meaning |
-
-### Animation Fundamentals (CRITICAL)
-| Rule | Description |
-|------|-------------|
-| `rules/scene-basics.md` | Scene class structure and animation timing |
-| `rules/animation-patterns.md` | **LaggedStartMap, state save/restore, progressive complexity** |
-| `rules/seamless-transitions.md` | **Overlapped transitions, persistent elements** |
-| `rules/mobject-grouping.md` | **VGroup organization and dictionary patterns** |
-| `rules/updaters.md` | **add_updater for real-time animations** |
-
-### Audio & Sync
-| Rule | Description |
-|------|-------------|
-| `rules/audio-sync.md` | Synchronizing narration with visuals |
-| `rules/strict-sync.md` | **StrictSyncScene base class for automatic timing** |
-| `rules/narration.md` | TTS integration and script writing |
-
-### Video Quality (HIGHEST PRIORITY)
-| Rule | Description |
-|------|-------------|
-| `rules/visual-quality.md` | **No overlaps, readable text, clear hierarchy** |
-| `rules/layout-spacing.md` | Screen zones, spacing, margins |
-| `rules/video-completion.md` | **Duration and content completion checks** |
-| `rules/verify-completion-template.md` | Verification script template |
-
-### Pedagogy & Content
-| Rule | Description |
-|------|-------------|
-| `rules/pre-production.md` | AI-guided planning with user interaction |
-| `rules/pedagogy.md` | Teaching philosophy and explanation structures |
-| `rules/mathematical-rigor.md` | Ensuring mathematical correctness |
-| `rules/narrative-flow.md` | Smooth transitions and completeness |
-| `rules/video-structure.md` | Hook, setup, core, example, takeaway |
-| `rules/completeness-check.md` | Validation checklist before rendering |
-
-### Visual Techniques
-| Rule | Description |
-|------|-------------|
-| `rules/camera-work.md` | Focus, zoom, and visual hierarchy |
-| `rules/equations.md` | LaTeX and mathematical notation |
-| `rules/graphs.md` | Graph and chart visualization |
-| `rules/3d-surfaces.md` | 3D visualization techniques |
-| `rules/text-transforms.md` | **TransformMatchingStrings patterns** |
-
-### Domain: Linear Algebra
-| Rule | Description |
-|------|-------------|
-| `rules/linear-transformations.md` | Geometric interpretation of transforms |
-| `rules/matrix-operations.md` | Matrix multiplication visualization |
-| `rules/eigenvalues.md` | Eigenvector and eigenvalue intuition |
-| `rules/vector-space.md` | Vector operations and spaces |
-
-### Domain: Statistics & Probability
-| Rule | Description |
-|------|-------------|
-| `rules/distributions.md` | PDF/CDF visualization |
-| `rules/bayes-theorem.md` | Bayesian reasoning |
-| `rules/sampling.md` | Monte Carlo methods |
-
-### Domain: Deep Learning
-| Rule | Description |
-|------|-------------|
-| `rules/neuron.md` | Single neuron visualization |
-| `rules/layer.md` | Layer representations |
-| `rules/network-architecture.md` | Full network diagrams |
-| `rules/forward-pass.md` | Data flow visualization |
-| `rules/gradient-flow.md` | Backpropagation visualization |
-| `rules/chain-rule.md` | Chain rule explanation |
-| `rules/weight-update.md` | Weight update visualization |
-| `rules/loss-landscape.md` | Loss surface visualization |
-| `rules/attention.md` | Attention mechanism |
-| `rules/transformer-block.md` | Transformer architecture |
-
-### Domain: CNN
-| Rule | Description |
-|------|-------------|
-| `rules/convolution.md` | Convolution operation |
-| `rules/feature-maps.md` | Feature map visualization |
-| `rules/pooling.md` | Pooling operations |
-| `rules/cnn-architecture.md` | CNN architecture diagrams |
-
-### Templates & Helpers
-| Rule | Description |
-|------|-------------|
-| `rules/explanation-templates.md` | Common explanation patterns |
-| `rules/helpers-template.md` | **Helper function patterns from 3b1b** |
-
----
-
-## AI-Guided Workflow (REQUIRED)
-
-### Step 1: Understand Request
-When user requests an animation, internally draft:
-- Topic and scope
-- Content structure
-- Visual elements needed
-
-### Step 2: Ask User Preferences
-**MUST use AskUserQuestion tool:**
-- Audio preference (With TTS / Without)
-- Duration preference (Short / Medium / Long / Auto)
-
-### Step 3: Present Plan
-Show content plan before coding:
-```
-📋 Animation Plan: [Topic]
-
-1. Hook: [Opening question]
-2. Setup: [Context]
-3. Core: [Main explanation]
-4. Example: [Demonstration]
-5. Takeaway: [Conclusion]
-
-Settings: Audio=Yes, Duration=~90s
-
-Proceed?
-```
-
-### Step 4: Execute Workflow
-
-| With Audio | Without Audio |
-|------------|---------------|
-| Script → TTS → Measure → Animate → Render → Combine | Estimate → Animate → Render |
-
----
-
-## Critical Rules Summary
-
-### MUST DO
-- Use `#1c1c1c` background color
-- Group related elements with VGroup
-- Use LaggedStartMap for cascading effects
-- Save/restore state for reversible transforms
-- Build complexity progressively
-- Add end padding (1.5-2s) to video
-- Verify video duration >= audio duration
-
-### MUST NOT
-- Create static frames (always have subtle motion)
-- Recreate elements each segment (keep persistent)
-- Use sequential FadeOut then FadeIn (overlap them)
-- End with play() without wait()
-- Hardcode arbitrary durations
-
----
-
-## Example Scene Pattern
-
+### Audio-Synced Scene (StrictSync)
 ```python
-from manim import *
+TIMING = {
+    "01": {"start": 0, "end": 5.5},
+    "02": {"start": 5.5, "end": 10.0},
+}
 
-class ExplanationScene(Scene):
-    """3b1b style explanation with seamless transitions."""
-
+class SyncedScene(Scene):
     def construct(self):
         self.camera.background_color = "#1c1c1c"
-
-        # Persistent elements - created ONCE
-        self.main_group = self._setup()
-
-        # Segments modify existing elements
-        self.seg_hook()
-        self.seg_setup()
-        self.seg_core()
-        self.seg_example()
-        self.seg_takeaway()
-
-        # End padding
+        for seg_id in sorted(TIMING.keys()):
+            method = getattr(self, f"seg_{seg_id}", None)
+            if method:
+                self._run(seg_id, method)
         self.wait(2)
 
-    def _setup(self):
-        """Create all persistent visual elements."""
-        pass
+    def _run(self, seg_id, method):
+        t = TIMING[seg_id]
+        target = t["end"] - t["start"]
+        start = self.renderer.time
+        method()
+        elapsed = self.renderer.time - start
+        if elapsed < target:
+            self.wait(target - elapsed)
 
-    def seg_hook(self):
-        """Pose the opening question."""
-        pass
+    def seg_01(self):
+        pass  # Your animation
+```
 
-    def seg_setup(self):
-        """Establish context."""
-        pass
+### Animation Patterns
+```python
+# Cascading appear
+self.play(LaggedStartMap(FadeIn, VGroup(*items), lag_ratio=0.15), run_time=1)
 
-    def seg_core(self):
-        """Main explanation with progressive complexity."""
-        pass
+# Highlight
+self.play(Flash(mob, color=YELLOW, line_length=0.2), run_time=0.3)
+self.play(Indicate(mob, color=YELLOW), run_time=0.5)
 
-    def seg_example(self):
-        """Concrete demonstration."""
-        pass
+# Transform text
+self.play(TransformMatchingStrings(old_text, new_text), run_time=0.5)
 
-    def seg_takeaway(self):
-        """Conclusion and cleanup."""
-        pass
+# Coordinated (not sequential)
+self.play(FadeIn(a), Create(b), Write(c), run_time=1)  # Good
+# self.play(FadeIn(a)); self.play(Create(b))  # Bad
+```
+
+### Layout
+```python
+# Screen zones
+title.to_edge(UP, buff=0.5)
+content.move_to(ORIGIN)
+info.to_edge(DOWN, buff=0.8)
+sidebar.to_edge(RIGHT, buff=1.0)
+
+# Spacing constants
+NODE_GAP = 1.5        # Minimum between nodes
+EDGE_LABEL_OFFSET = 0.22  # Perpendicular to edge
+
+# Edge label placement
+mid = line.get_center()
+direction = end - start
+perp = np.array([-direction[1], direction[0], 0])
+perp = perp / np.linalg.norm(perp) * 0.22
+label.move_to(mid + perp)
+```
+
+### Graph Creation Pattern
+```python
+self.node_to_circle = {}  # Dictionary mapping
+for name, pos in positions.items():
+    circle = Circle(radius=0.3, color=BLUE, fill_opacity=0.5, stroke_width=2)
+    circle.move_to(pos)
+    self.node_to_circle[name] = circle
+```
+
+### Pedagogy (3b1b Style)
+```
+1. HOOK: Pose interesting question
+2. INTUITION: Visual understanding (NO formulas yet)
+3. STEP-BY-STEP: Concrete example with numbers
+4. FORMALIZATION: NOW introduce formula/name
 ```
 
 ---
 
-## Version History
+## Rules (Detailed Reference)
 
-- **1.1.0**: Added animation-patterns, seamless-transitions, mobject-grouping, updaters, text-transforms, helpers-template based on 3b1b/videos and remotion-dev/skills analysis
-- **1.0.0**: Initial release
+### Setup & Basics
+- [rules/manim-setup.md](rules/manim-setup.md) - Installation
+- [rules/scene-basics.md](rules/scene-basics.md) - Scene structure
+- [rules/color-scheme.md](rules/color-scheme.md) - Full color palette
+
+### Animation
+- [rules/animation-patterns.md](rules/animation-patterns.md) - LaggedStartMap, state save/restore
+- [rules/text-transforms.md](rules/text-transforms.md) - TransformMatchingStrings
+- [rules/updaters.md](rules/updaters.md) - add_updater for dynamic motion
+- [rules/seamless-transitions.md](rules/seamless-transitions.md) - Smooth transitions
+
+### Layout & Visual
+- [rules/layout-spacing.md](rules/layout-spacing.md) - Spacing, screen zones
+- [rules/mobject-grouping.md](rules/mobject-grouping.md) - VGroup organization
+- [rules/visual-quality.md](rules/visual-quality.md) - Quality checks
+- [rules/camera-work.md](rules/camera-work.md) - MovingCameraScene
+
+### Content Types
+- [rules/equations.md](rules/equations.md) - LaTeX, MathTex
+- [rules/graphs.md](rules/graphs.md) - Function plotting
+- [rules/3d-surfaces.md](rules/3d-surfaces.md) - ThreeDScene
+
+### Audio & Sync
+- [rules/audio-sync.md](rules/audio-sync.md) - Audio-visual sync
+- [rules/strict-sync.md](rules/strict-sync.md) - StrictSyncScene
+
+### Philosophy
+- [rules/pedagogy.md](rules/pedagogy.md) - Intuition before formalism
+
+---
+
+## MUST / MUST NOT
+
+### MUST
+- Use `#1c1c1c` background
+- Use `LaggedStartMap` for cascading effects
+- Group related elements with VGroup + dictionary
+- End with `self.wait(2)` for padding
+- Keep NODE_GAP >= 1.5
+- Place edge labels perpendicular to edge
+
+### MUST NOT
+- Use pure black (#000000) background
+- Animate elements one-by-one with separate play() calls
+- Place nodes too close (< 1.5 units apart)
+- Show formulas before building intuition
+- End play() without wait()
